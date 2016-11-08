@@ -1,0 +1,21 @@
+# History
+HISTSIZE=32768
+SAVEHIST=32768
+
+export HISTSIZE='32768';
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTFILESIZE="${HISTSIZE}";
+
+# Omit duplicates and commands that begin with a space from history.
+#export HISTCONTROL='ignoreboth';
+
+setopt inc_append_history # Append history as commands are executed
+setopt hist_ignore_all_dups # Don't save duplicates
+unsetopt share_history # Disable sharing history between terminals (sessions)
+
+# Expansion and Globbing
+setopt extended_glob # treat #, ~, and ^ as part of patterns for filename generation
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';

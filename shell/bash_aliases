@@ -1,0 +1,307 @@
+#!/usr/bin/env bash
+# For a full list of active aliases, run `alias`.
+
+# Enable aliases to be sudo’ed
+alias sudo="sudo "
+
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+alias youtube=youtube_dl
+youtube_dl() {
+    #do things with parameters like $1 such as
+    youtube-dl -x --audio-quality 0 --audio-format mp3 $1
+}
+eval "$(thefuck --alias)"
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# Shortcuts
+alias downl="cd ~/Downloads"
+alias desk="cd ~/Desktop"
+alias doc="cd ~/Documents"
+alias qa="cd ~/Documents/GitLocalRepo/qa/qa/"
+alias hist="history"
+alias job="jobs"
+alias o="open"
+alias oo="open ."
+alias e="$EDITOR"
+alias g="git"
+alias v="vim"
+alias gh="github"
+alias rm="trash"
+alias x+="chmod +x"
+alias -- +x="chmod +x"
+alias fs="stat -f \"%z bytes\""				# File size
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+#alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
+alias less='less -FSRXc'                    # Preferred 'less' implementation
+cd() { builtin cd "$@"; ls -hFG; }               # Always list directory contents upon #'cd'
+alias edit='subl'                           # edit:         Opens any file in sublime editor
+alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
+alias trimcopy="tr -d '\n' | pbcopy"		# Trim new lines and copy to clipboard
+alias ~="cd ~"                              # ~:            Go Home
+alias clr='clear'                           # clr:            Clear terminal display
+alias which='type -all'                     # which:        Find executables
+alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias show_options='shopt'                  # Show_options: display bash options settings
+alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
+alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
+mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
+ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
+alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+alias htop='sudo htop'
+alias hosts='sudo $EDITOR /etc/hosts' 
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+	export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+else # macOS `ls`
+	colorflag="-G"
+	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+fi
+
+export CLICOLOR_FORCE=1
+####----Mac OSX LS----####
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+# List only directories
+alias lsd="ls -lhF ${colorflag} | grep --color=never '^d'"
+
+# List all files colorized in long format
+alias l="ls -lhF ${colorflag}"
+
+# List all files colorized in long format, including dot files
+alias la="ls -lahF ${colorflag}"
+####----Mac OSX LS----####
+
+####----LINUX LS----####
+# ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
+#alias lsl='gls -AFh ${colorflag} --group-directories-first'
+alias lsl='gls -AFh --color --group-directories-first' 	#Hard Coded
+
+# List only directories
+#alias lsld='gls -l | grep "^d"'
+alias lsld='gls -l | grep "^d"'								#Hard Coded
+
+# List all files colorized in long format, including dot files
+#alias lal="gls -la ${colorflag}"
+alias lal="gls -la --color"									#Hard Coded
+####----LINUX LS----####
+
+# `cat` with beautiful colors. requires Pygments installed.
+# sudo easy_install -U Pygments
+alias cat='pygmentize -O style=monokai -f console256 -g'
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Get week number
+alias week='date +%V'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias macit='sudo softwareupdate -i -a' 
+alias brewit='brew update; brew upgrade; brew cleanup;' 
+alias npmit='npm install npm -g; npm update -g;' 
+alias gemit='sudo gem update --system; sudo gem update; sudo gem cleanup'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias dig="dig +nocmd any +multiline +noall +answer"
+alias localip="ipconfig getifaddr en1"
+#alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
+
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+alias flushdns="dscacheutil -flushcache" # Flush DNS cache
+#alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder" # Flush Directory Service cache
+
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+# macOS has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# macOS has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# JavaScriptCore REPL
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
+[ -e "${jscbin}" ] && alias jsc="${jscbin}";
+unset jscbin;
+
+# Trim new lines and copy to clipboard
+alias cpy="tr -d '\n' | pbcopy"
+
+# Copy my public key to the pasteboard
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# Download file and save it with filename of remote file
+alias get="curl -O -L"
+
+# Disc utils
+alias diskspace_report="df -P -kHl"
+alias free_diskspace_report="diskspace_report"
+
+# Recursively delete `.DS_Store` files
+alias cleanup_dsstore="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+# Show/hide hidden files in Finder
+alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Merge PDF files
+# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Disable Spotlight
+alias spotoff="sudo mdutil -a -i off"
+# Enable Spotlight
+alias spoton="sudo mdutil -a -i on"
+
+# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
+alias plistbuddy="/usr/libexec/PlistBuddy"
+
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
+
+# zshrc config
+#alias zshrc="${EDITOR} ${$(cd -P $(dirname $0) && cd ..; pwd -P)}"
+#alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
+# zsh.local config
+#alias localrc="if [[ -a ~/.zsh.local ]]; then ${EDITOR} ~/.zsh.local; fi"
+
+# Make Grunt print stack traces by default
+# command -v grunt > /dev/null && alias grunt="grunt --stack"
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume output volume 100'"
+
+# Kill all the tabs in Chrome to free up memory
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+
+#
+# GIT STUFF
+#
+
+# List git branches on the local machine sorted by recent updates, adding a star to remote tracking branches
+# function git_list_branches() {
+#   RED="\e[91m";
+#   for branch in $(git branch | sed s/^..//); do
+#     time_ago=$(git log -1 --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $branch --);
+#     # Add a red star to mark branches that are tracking something upstream
+#     tracks_upstream=$(if [ "$(git rev-parse $branch@{upstream} 2>/dev/null)" ]; then printf "$RED★"; fi);
+#     printf "%-53s - %s %s\n" $time_ago $branch $tracks_upstream;
+#   done | sort;
+# }
+# Git aliases
+# More Git tips http://firstaidgit.io/
+alias gss="git status -s"
+alias gp="git push origin HEAD"
+alias gpt="git push origin HEAD && git push --tags"
+alias wip="git commit -m'WIP' . && git push origin HEAD"
+alias grok="ngrok start rem.jsbin-dev.com static.rem.jsbin-dev.com learn.rem.jsbin-dev.com"
+alias gl='git log'
+alias glp5='git log -5 --pretty --oneline' # view your last 5 latest commits each on their own line
+alias glt='git log --all --graph --decorate --oneline --simplify-by-decoration' # pretty branch status
+alias glsw='git log -S' # search the commit history for the word puppy and display matching commits (glsw [word])
+alias gs='git status'
+alias gd='git diff'
+alias gm='git commit -m'
+alias gam='git commit -am'
+alias gb='git branch'
+alias gc='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gbt=git_list_branches
+alias gpu='git pull origin HEAD --prune'
+alias gcl='git clone'
+alias gta='git tag -a -m'
+alias gf='git reflog' # allows you to see every step you have made with git allowing you to retract and reinstate your steps
+alias gap='git add -p' # step through each change, or hunk
+alias gsl='git shortlog -sn' # quickly get a list of contributors and see how many commits each person has
+alias gws='git diff --shortstat "@{0 day ago}"' # how many lines of code you have written today
+alias gwts='git ls-files | xargs wc -l' # count number of lines of code in a git project
+alias ggmp='git checkout -' # jump back to to your last branch
+alias gst='git stash' # stash git changes and put them into your list
+alias gdtp='git stash pop' # bring back your changes, but it removes them from your stash
+alias gchp='git cherry-pick' # cherry pick the committed code in your own branch (gchp [hash])
+alias gcln='git clean -xfd' # remove untracked files
+
+# Undo a `git push`
+alias undopush="git push -f origin HEAD^:master"
+
+# `cd` to Git repo root
+alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+
+# Gist
+alias gist-paste="gist --private --copy --paste --filename"  # gist-paste filename.ext -- create private Gist from the clipboard contents
+alias gist-file="gist --private --copy"  # gist-file filename.ext -- create private Gist from a file

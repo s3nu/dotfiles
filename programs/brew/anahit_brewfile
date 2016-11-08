@@ -1,0 +1,268 @@
+# - Languages: rvm (Ruby), nvm (Node.js), go, python3, rust
+# - Databases: Progres, MySQL, Redis, Mongo, Elasticsearch
+# - Servers: Apache, Nginx
+# - Fuck (https://github.com/nvbn/thefuck): Correct your previous command.
+# - git-extras (https://vimeo.com/45506445): Adds a shit ton of useful commands #   to git.
+#   Node.js projects. For Ruby projects, I just use Foreman or Forego.
+# - autojump (https://github.com/joelthelion/autojump): a faster way to navigate
+#   your filesystem.
+
+yar = false #bool for checking
+
+if yar == true
+	# Install GNU core utilities (those that come with OS X are outdated)
+	# Add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+	brew 'coreutils'
+
+	# Install some other useful utilities like `sponge`
+	brew 'moreutils'
+	
+	# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
+	brew 'findutils'
+	# Install GNU `sed`, overwriting the built-in `sed`
+	brew 'gnu-sed', args: ['default-names']
+	# Install GNU `grep`, overwriting the built-in `grep`
+	brew 'grep', args: ['with-default-names']
+	
+	# Install Bash 4
+	# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+	brew 'bash'
+	
+	# Install Bash and Cask completion
+	brew 'bash-completion2'
+	brew 'homebrew/completions/brew-cask-completion'
+
+	# Install wget with IRI support
+	brew 'wget', args: ['with-iri']
+
+	# Install more recent versions of some OS X tools
+	brew 'vim'
+	brew 'homebrew/dupes/grep'
+	brew 'homebrew/dupes/screen'
+	brew 'homebrew/dupes/zlib'
+
+	# Install PHP and tools
+	brew 'homebrew/php/php70', args: ['with-gmp']
+	brew 'homebrew/php/php70-xdebug'
+	brew 'homebrew/php/php-code-sniffer'
+	brew 'homebrew/php/phpunit'
+
+	#taps 
+	tap 'neovim/neovim'
+	tap 'caskroom/cask'
+	tap 'caskroom/fonts'
+	tap 'caskroom/versions'
+	tap 'caskroom/dupes'
+
+	# Install other useful binaries
+	brew 'autojump'
+	brew 'ack'
+	brew 'aria2'
+	brew 'bfg'
+	brew 'cloc'
+	brew 'cmake'
+	brew 'diff-so-fancy'
+	brew 'ffmpeg', args: ['with-libvpx', 'with-webp']
+    brew 'fortune'
+	brew 'git'
+	brew 'git-extras'
+	brew 'hub'
+	brew 'htop'
+	brew 'imagemagick', args: ['with-webp']
+	brew 'jp2a'
+	brew 'jpegoptim'
+	brew 'keybase'
+	brew 'mongodb'
+	brew 'mtr'
+	brew 'neovim/neovim/neovim'
+	brew 'node' # Comes with NPM 
+    brew 'nvm'
+	brew 'openssl'
+	brew 'openssh'
+	brew 'optipng'
+	brew 'p7zip'
+	brew 'pigz'
+	brew 'ponysay'
+	brew 'pv'
+	brew 'python'
+	brew 'python3'
+	brew 'rename'
+	brew 'rvm'
+	brew 'subliminal'
+	brew 'source-highlight'
+	brew 'tree'
+	brew 'the_silver_searcher'
+	brew 'youtube-dl'
+	brew 'wifi-password'
+	brew 'webkit2png'
+	brew 'zopfli'
+    
+elsif yar == false
+	tap 'caskroom/cask'
+	tap 'goles/battery'
+	tap 'homebrew/apache'
+	tap 'homebrew/bundle'
+	tap 'homebrew/completions'
+	tap 'homebrew/core'
+	tap 'homebrew/dupes'
+	tap 'homebrew/php'
+	tap 'homebrew/services'
+	tap 'homebrew/versions'
+	brew 'ack'
+	brew 'apache-spark'
+	brew 'apr'
+	brew 'openssl'
+	brew 'gdbm'
+	brew 'pkg-config'
+	brew 'readline'
+	brew 'icu4c'
+	brew 'sqlite'
+	brew 'python'
+	brew 'xz'
+	brew 'python3'
+	brew 'postgresql'
+	brew 'unixodbc'
+	brew 'apr-util'
+	brew 'libssh2'
+	brew 'aria2'
+	brew 'autojump'
+	brew 'bash'
+	brew 'bfg'
+	brew 'boost'
+	brew 'cloc'
+	brew 'coreutils'
+	brew 'cowsay'
+	brew 'node'
+	brew 'diff-so-fancy'
+	brew 'doxygen'
+	brew 'faac'
+	brew 'libpng'
+	brew 'freetype'
+	brew 'lame'
+	brew 'yasm'
+	brew 'libvpx'
+	brew 'gettext'
+	brew 'texi2html'
+	brew 'jpeg'
+	brew 'libtiff'
+	brew 'webp'
+	brew 'pcre'
+	brew 'git'
+	brew 'x264'
+	brew 'xvid'
+	brew 'ffmpeg', args: ['with-libvpx', 'with-webp']
+	brew 'findutils'
+	brew 'fortune'
+	brew 'git-extras'
+	brew 'git-lfs'
+	brew 'gnu-sed', args: ['with-default-names']
+	brew 'libyaml'
+	brew 'ruby'
+	brew 'heroku'
+	brew 'htop'
+	brew 'hub'
+	brew 'libtool'
+	brew 'perl'
+	brew 'imagemagick', args: ['with-webp']
+	brew 'jp2a'
+	brew 'jpegoptim'
+	brew 'keybase'
+	brew 'libav'
+	brew 'libevent'
+	brew 'libxml2'
+	brew 'mongodb'
+	brew 'moreutils'
+	brew 'mtr'
+	brew 'multimarkdown'
+	brew 'nasm'
+	brew 'optipng'
+	brew 'p7zip'
+	brew 'pigz'
+	brew 'ponysay'
+	brew 'pv'
+	brew 'rename'
+	brew 'rust'
+	brew 'source-highlight'
+	brew 'speedtest_cli'
+	brew 'ssh-copy-id'
+	brew 'subliminal'
+	brew 'the_silver_searcher'
+	brew 'thefuck'
+	brew 'utf8proc'
+	brew 'tmux'
+	brew 'tree'
+	brew 'vim'
+	brew 'webkit2png'
+	brew 'wget', args: ['with-iri']
+	brew 'wifi-password'
+	brew 'youtube-dl'
+	brew 'zopfli'
+	brew 'homebrew/dupes/zlib'
+	brew 'homebrew/apache/httpd24'
+	brew 'homebrew/completions/brew-cask-completion'
+	brew 'homebrew/dupes/grep'
+	brew 'homebrew/dupes/openssh'
+	brew 'homebrew/php/php70', args: ['with-apache']
+	brew 'homebrew/php/composer'
+	brew 'homebrew/php/php-code-sniffer'
+	brew 'homebrew/php/php70-xdebug'
+	brew 'homebrew/php/phpunit'
+	brew 'homebrew/versions/bash-completion2'
+	brew 'homebrew/versions/gmp4'
+	brew 'homebrew/versions/mpfr2'
+	brew 'homebrew/versions/mysql56'
+	cask 'mysql-connector-python'	
+end
+# Install useful completions
+	# brew 'homebrew/completions/apm-bash-completion'
+	# brew 'homebrew/completions/brew-cask-completion'
+	# brew 'homebrew/completions/composer-completion'
+	# brew 'homebrew/completions/bundler-completion'
+	# brew 'homebrew/completions/gem-completion'
+	# brew 'homebrew/completions/grunt-completion'
+	# brew 'homebrew/completions/open-completion'
+	# brew 'homebrew/completions/vagrant-completion'
+# Install Brew Cask along with Desktop apps
+	# tap 'caskroom/cask'
+	# tap 'caskroom/fonts'
+	# tap 'caskroom/versions'
+
+	# cask '1password-beta'
+	# cask 'atom-beta'
+	# cask 'caret'
+	# cask 'firefox'
+	# cask 'font-source-code-pro'
+	# cask 'google-chrome-dev'
+	# cask 'google-drive'
+	# cask 'google-photos-backup'
+	# cask 'heroku-toolbelt'
+	# cask 'imagealpha'
+	# cask 'imageoptim'
+	# cask 'iterm2-nightly'
+	# cask 'java'
+	# cask 'kindle'
+	# cask 'lastpass'
+	# cask 'licecap'
+	# cask 'monodraw'
+	# cask 'mplayerx'
+	# cask 'rescuetime'
+	# cask 'sequel-pro-nightly'
+	# cask 'sketch'
+	# cask 'slack'
+	# cask 'sublime-text-dev'
+	# cask 'the-unarchiver'
+	# cask 'vagrant'
+	# cask 'virtualbox'
+	# cask 'yubikey-personalization-gui'
+
+	# Quick Look plugins
+	# See https://github.com/sindresorhus/quick-look-plugins
+	# cask 'betterzipql'
+	# cask 'qlcolorcode'
+	# cask 'quicklook-csv'
+	# cask 'quicklook-json'
+	# cask 'qlmarkdown'
+	# cask 'qlprettypatch'
+	# cask 'suspicious-package'
+	# cask 'qlstephen'
+	# cask 'webpquicklook'
