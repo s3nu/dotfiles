@@ -119,8 +119,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 
 
-dir=~/dotfiles                        # dotfiles directory
-dir_backup=~/dotfiles_old             # old dotfiles backup directory
+dir=~/.dotfiles                        # dotfiles directory
+dir_backup=~/.dotfiles_old             # old dotfiles backup directory
 
 # Get current dir (so run this script from anywhere)
 export DOTFILES_DIR
@@ -140,8 +140,8 @@ echo "done"
 # symlink code
 
 echo -n "Copying Atom settings.."   # Atom editor settings
-mv -f ~/.atom ~/dotfiles_old/
-ln -s $HOME/dotfiles/atom ~/.atom
+mv -f ~/.atom ~/.dotfiles_old/
+ln -s $HOME/.dotfiles/programs/atom ~/.atom
 echo "done"
 
 
@@ -180,7 +180,7 @@ declare -a FILES_TO_SYMLINK=(
 # Move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for i in ${FILES_TO_SYMLINK[@]}; do
   echo "Moving any existing dotfiles from ~ to $dir_backup"
-  mv ~/.${i##*/} ~/dotfiles_old/
+  mv ~/.${i##*/} ~/.dotfiles_old/
 done
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -288,7 +288,7 @@ main
 # Zsh                                                                         #
 ###############################################################################
 # Install Zsh settings
-ln -s ~/dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
+ln -s ~/.dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -297,8 +297,8 @@ ln -s ~/dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Install the iTerm and Terminal
-open "${HOME}/dotfiles/programs/iterm/themes/anahit_custom.itermcolors"
-open "${HOME}/dotfiles/programs/terminal/anahit_custom.terminal"
+open "${HOME}/.dotfiles/programs/iterm/themes/anahit_custom.itermcolors"
+open "${HOME}/.dotfiles/programs/terminal/anahit_custom.terminal"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false

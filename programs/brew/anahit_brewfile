@@ -108,8 +108,8 @@ elsif yar == false
 	tap 'homebrew/php'
 	tap 'homebrew/services'
 	tap 'homebrew/versions'
+	brew 'homebrew/versions/bash-completion2'
 	brew 'ack'
-	brew 'apache-spark'
 	brew 'apr'
 	brew 'openssl'
 	brew 'gdbm'
@@ -194,12 +194,11 @@ elsif yar == false
 	brew 'vim'
 	brew 'webkit2png'
 	brew 'wget', args: ['with-iri']
-	brew 'wifi-password'
 	brew 'youtube-dl'
 	brew 'zopfli'
 	brew 'homebrew/dupes/zlib'
 	brew 'homebrew/apache/httpd24'
-	brew 'homebrew/completions/brew-cask-completion'
+	brew 'brew-cask-completion'
 	brew 'homebrew/dupes/grep'
 	brew 'homebrew/dupes/openssh'
 	brew 'homebrew/php/php70', args: ['with-apache']
@@ -207,11 +206,9 @@ elsif yar == false
 	brew 'homebrew/php/php-code-sniffer'
 	brew 'homebrew/php/php70-xdebug'
 	brew 'homebrew/php/phpunit'
-	brew 'homebrew/versions/bash-completion2'
-	brew 'homebrew/versions/gmp4'
-	brew 'homebrew/versions/mpfr2'
-	brew 'homebrew/versions/mysql56'
-	cask 'mysql-connector-python'	
+	brew 'gmp@4'
+	brew 'mpfr@2'
+	brew 'mysql'	
 end
 # Install useful completions
 	# brew 'homebrew/completions/apm-bash-completion'

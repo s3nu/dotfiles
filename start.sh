@@ -38,11 +38,12 @@ then
 fi
 
 brew update     # Latest updates and upgrades
-brre upgrade 		# Latest updates and upgrades
+brew upgrade 		# Latest updates and upgrades
 
 # Install Brew formulae and apps via Cask
 brew bundle --file=programs/brew/anahit_brewfile
-#	$HOME/dotfiles/install/brew.sh
+# chmod u+x /programs/brew/brew.sh
+# /programs/brew/brew.sh
 #	$HOME/dotfiles/install/brew-cask.sh
 
 brew cleanup	#Remove Depracted formulas
