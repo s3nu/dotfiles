@@ -11,7 +11,6 @@ youtube_dl() {
     #do things with parameters like $1 such as
     youtube-dl -x --audio-quality 0 --audio-format mp3 $1
 }
-eval "$(thefuck --alias)"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
@@ -30,7 +29,6 @@ alias -- -="cd -"
 alias downl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
 alias doc="cd ~/Documents"
-alias qa="cd ~/Documents/GitLocalRepo/qa/qa/"
 alias hist="history"
 alias job="jobs"
 alias o="open"
@@ -46,7 +44,7 @@ alias fs="stat -f \"%z bytes\""				# File size
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-#alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
+alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 cd() { builtin cd "$@"; ls -hFG; }               # Always list directory contents upon #'cd'
 alias edit='subl'                           # edit:         Opens any file in sublime editor

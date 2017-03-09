@@ -113,7 +113,7 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 #   -----------------------------
 #   3.  Custom
 #   -----------------------------
-
+eval "$(thefuck --alias)"
 
 
 
