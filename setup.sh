@@ -148,6 +148,7 @@ declare -a FILES_TO_SYMLINK=(
   # 'programs/vim'
   'programs/zsh'
   'shell/shell_config'
+  'shell/shell_aliases'
   'shell/shell_exports'
   'shell/shell_functions'
   'shell/zshrc'
