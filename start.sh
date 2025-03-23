@@ -47,7 +47,7 @@ brew bundle --file=programs/brew/anahit_brewfile
 #	$HOME/dotfiles/install/brew-cask.sh
 
 brew cleanup	#Remove Depracted formulas
-brew prune		#Remove Depracted formulas
+brew doctor   #Check for issues
 
 ###############################################################################
 # ========= Node ==========													  #
@@ -59,9 +59,9 @@ brew prune		#Remove Depracted formulas
 ###############################################################################
 # ========= Bash ==========													  #
 ###############################################################################
-#Enable Bash 4 installed from brew -- Add the Bash shell to the list of legit shells
-sudo bash -c "echo /usr/local/bin/bash >> /private/etc/shells"
-chsh -s /usr/local/bin/bash 	# Change the shell for the user
+#Set Zsh to default shell
+chsh -s /opt/homebrew/bin/zsh 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ###############################################################################
 # =========== Vim =============												  #
@@ -78,10 +78,10 @@ chsh -s /usr/local/bin/bash 	# Change the shell for the user
 ###############################################################################
 # Atom                                                                        #
 ###############################################################################
-ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
-cp -r programs/atom/packages.list $HOME/.atom  # Copy over Atom configs
-apm list --installed --bare - get a list of installed packages # List community packages
-apm install --packages-file $HOME/.atom/packages.list # Install community packages
+# ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
+# cp -r programs/atom/packages.list $HOME/.atom  # Copy over Atom configs
+# apm list --installed --bare - get a list of installed packages # List community packages
+# apm install --packages-file $HOME/.atom/packages.list # Install community packages
 ###############################################################################
 # OSX defaults                                                                #
 ###############################################################################
@@ -90,7 +90,7 @@ apm install --packages-file $HOME/.atom/packages.list # Install community packag
 ###############################################################################
 # =========== Custom =============										      #
 ###############################################################################
-sudo easy_install Pygments #For cat alias (syntax highlighted cat)
+# sudo easy_install Pygments #For cat alias (syntax highlighted cat)
 
 ###############################################################################
 # Symlinks to link dotfiles into ~/                                           #

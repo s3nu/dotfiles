@@ -138,41 +138,29 @@ echo "done"
 
 
 # symlink code
-
-echo -n "Copying Atom settings.."   # Atom editor settings
-mv -f ~/.atom ~/.dotfiles_old/
-ln -s $HOME/.dotfiles/programs/atom ~/.atom
-echo "done"
+# echo -n "Copying Atom settings.."   # Atom editor settings
+# mv -f ~/.atom ~/.dotfiles_old/
+# ln -s $HOME/.dotfiles/programs/atom ~/.atom
+# echo "done"
 
 
 declare -a FILES_TO_SYMLINK=(
-  'programs/vim'
-
-  #'shell/shell_aliases'
-  'shell/bash_aliases'
+  # 'programs/vim'
+  'programs/zsh'
   'shell/shell_config'
+  'shell/shell_aliases'
   'shell/shell_exports'
   'shell/shell_functions'
-  'shell/bash_profile'
-  'shell/bash_prompt'
-  'shell/bashrc'
   'shell/zshrc'
-  'shell/ackrc'
+  # 'shell/ackrc'
   'shell/curlrc'
-  'shell/gemrc'
-  'shell/inputrc'
-  'shell/screenrc'
-  'shell/extra'
   'shell/editorconfig'
-  'shell/gdbinit'
-  'shell/vimrc'
-
+  # 'shell/vimrc'
   'git/gitattributes'
   'git/gitconfig'
   'git/gitignore'
   'git/gitignore_global'
   'git/hgignore'
-
 )
 
 # FILES_TO_SYMLINK="$FILES_TO_SYMLINK .vim bin" # add in vim and the binaries
@@ -209,31 +197,6 @@ main() {
     fi
   done
   unset FILES_TO_SYMLINK
-
-#Disabled Bindary Files for Now 
-  # Copy binaries
-  #ln -fs $HOME/dotfiles/bin $HOME
-
-  # declare -a BINARIES=(
-    # 'crlf'
-    # 'dups'
-    # 'git-delete-merged-branches'
-    # 'git-loglive'
-    # 'img-ascii-diff'
-    # 'nyan'
-    # 'passive'
-    # 'proofread'
-    # 'ssh-key'
-    # 'weasel'
-  # )
-
-  # for i in ${BINARIES[@]}; do
-  #   echo "Changing access permissions for binary script :: ${i##*/}"
-  #   chmod +rwx $HOME/bin/${i##*/}
-  # done
-
-  # unset BINARIES
-#Disabled Bindary Files for Now
 }   #End Main Function
 
 install_zsh () {  #Function to install zsh in parrallel with bash
@@ -269,14 +232,6 @@ install_zsh () {  #Function to install zsh in parrallel with bash
   fi
 }
 
-####  Duplicate install   ####
-# Package managers & packages
-# . "$DOTFILES_DIR/install/brew.sh"
-# . "$DOTFILES_DIR/install/npm.sh"
-# if [ "$(uname)" == "Darwin" ]; then
-    # . "$DOTFILES_DIR/install/brew-cask.sh"
-# fi
-####  Duplicate install   ####
 
 ###############################################################################
 # Fuction Calls                                                              #
@@ -288,7 +243,7 @@ main
 # Zsh                                                                         #
 ###############################################################################
 # Install Zsh settings
-ln -s ~/.dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
+ln -s ~/.dotfiles/zsh/themes/anahit.zsh-theme $HOME/.oh-my-zsh/themes
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -297,13 +252,12 @@ ln -s ~/.dotfiles/zsh/themes/nick.zsh-theme $HOME/.oh-my-zsh/themes
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Install the iTerm and Terminal
-open "${HOME}/.dotfiles/programs/iterm/themes/anahit_custom.itermcolors"
-open "${HOME}/.dotfiles/programs/terminal/anahit_custom.terminal"
+open "${DOTFILES_DIR}/programs/iterm/themes/anahit_custom.itermcolors"
+open "${DOTFILES_DIR}/programs/terminal/anahit_custom.terminal"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 source ~/.zshrc;          # Reload zsh settings
-source ~/.bash_profile;   # Reload Bash settins 
 
 
