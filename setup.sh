@@ -197,31 +197,6 @@ main() {
     fi
   done
   unset FILES_TO_SYMLINK
-
-#Disabled Bindary Files for Now 
-  # Copy binaries
-  #ln -fs $HOME/dotfiles/bin $HOME
-
-  # declare -a BINARIES=(
-    # 'crlf'
-    # 'dups'
-    # 'git-delete-merged-branches'
-    # 'git-loglive'
-    # 'img-ascii-diff'
-    # 'nyan'
-    # 'passive'
-    # 'proofread'
-    # 'ssh-key'
-    # 'weasel'
-  # )
-
-  # for i in ${BINARIES[@]}; do
-  #   echo "Changing access permissions for binary script :: ${i##*/}"
-  #   chmod +rwx $HOME/bin/${i##*/}
-  # done
-
-  # unset BINARIES
-#Disabled Bindary Files for Now
 }   #End Main Function
 
 install_zsh () {  #Function to install zsh in parrallel with bash
@@ -257,14 +232,6 @@ install_zsh () {  #Function to install zsh in parrallel with bash
   fi
 }
 
-####  Duplicate install   ####
-# Package managers & packages
-# . "$DOTFILES_DIR/install/brew.sh"
-# . "$DOTFILES_DIR/install/npm.sh"
-# if [ "$(uname)" == "Darwin" ]; then
-    # . "$DOTFILES_DIR/install/brew-cask.sh"
-# fi
-####  Duplicate install   ####
 
 ###############################################################################
 # Fuction Calls                                                              #
