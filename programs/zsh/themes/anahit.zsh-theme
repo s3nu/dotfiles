@@ -113,10 +113,6 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
-function battery_charge {
-  echo `~/bin/batcharge.py`
-}
-
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -126,7 +122,6 @@ build_prompt() {
   prompt_end
 }
 
-RPROMPT='$(prompt_online) $(battery_charge)'
+RPROMPT='$(prompt_online)'
 
-PROMPT='%{%f%b%k%}$(build_prompt)
-» '
+PROMPT='%{%f%b%k%}$(build_prompt)» '
