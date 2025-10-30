@@ -103,5 +103,9 @@ source $ZSH/oh-my-zsh.sh
 fortune #| ponysay
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 autoload -Uz compinit
 compinit
+export PATH="/opt/podman/bin:$PATH"
+# amp
+export PATH="$HOME/.local/bin:$PATH"
