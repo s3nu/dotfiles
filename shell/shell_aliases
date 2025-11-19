@@ -33,7 +33,6 @@ alias oo="open ."
 alias e="$EDITOR"
 alias g="git"
 alias v="vim"
-alias gh="github"
 alias rm="trash"
 alias x+="chmod +x"
 alias -- +x="chmod +x"
@@ -47,7 +46,7 @@ cd() { builtin cd "$@"; ls -hFG; }               # Always list directory content
 alias edit='subl'                           # edit:         Opens any file in sublime editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
-alias which='type -all'                     # which:        Find executables
+# alias which='type -all'                      # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
@@ -133,9 +132,9 @@ alias week='date +%V'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias macit='sudo softwareupdate -i -a' 
-alias brewit='brew update; brew upgrade; brew cleanup;' 
-alias npmit='npm install npm -g; npm update -g;' 
+alias macit='sudo softwareupdate -i -a'
+alias brewit='brew update; brew upgrade; brew cleanup;'
+alias npmit='npm install npm -g; npm update -g;'
 alias gemit='sudo gem update --system; sudo gem update; sudo gem cleanup'
 
 # IP addresses

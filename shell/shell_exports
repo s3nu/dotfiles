@@ -3,9 +3,9 @@
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nano'
+  export EDITOR='vim'
 else
-  export EDITOR='nano'
+  export EDITOR='vim'
 fi
 
 # Prefer US English and use UTF-8
@@ -22,7 +22,7 @@ export LANG="en_US.UTF-8"
 export MANPAGER="less -X"
 
 # Make less the default pager, add some options and enable syntax highlight using source-highlight
-LESSPIPE=`which src-hilite-lesspipe.sh`
+LESSPIPE=`command -v src-hilite-lesspipe.sh`
 [ -n "$LESSPIPE" ] && export LESSOPEN="| ${LESSPIPE} %s"
 less_options=(
   # If the entire text fits on one screen, just show it and quit. (Be more
