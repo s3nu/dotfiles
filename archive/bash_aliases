@@ -36,7 +36,6 @@ alias oo="open ."
 alias e="$EDITOR"
 alias g="git"
 alias v="vim"
-alias gh="github"
 alias rm="trash"
 alias x+="chmod +x"
 alias -- +x="chmod +x"
@@ -62,7 +61,7 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias htop='sudo htop'
-alias hosts='sudo $EDITOR /etc/hosts' 
+alias hosts='sudo $EDITOR /etc/hosts'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -119,9 +118,9 @@ alias week='date +%V'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias macit='sudo softwareupdate -i -a' 
-alias brewit='brew update; brew upgrade; brew cleanup;' 
-alias npmit='npm install npm -g; npm update -g;' 
+alias macit='sudo softwareupdate -i -a'
+alias brewit='brew update; brew upgrade; brew cleanup;'
+alias npmit='npm install npm -g; npm update -g;'
 alias gemit='sudo gem update --system; sudo gem update; sudo gem cleanup'
 
 # IP addresses
