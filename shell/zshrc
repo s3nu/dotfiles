@@ -103,9 +103,18 @@ source $ZSH/oh-my-zsh.sh
 fortune #| ponysay
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# Homebrew completions (tab-based)
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+fi
 autoload -Uz compinit
 compinit
+
+# Tab completion settings
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 export PATH="/opt/podman/bin:$PATH"
 # amp
 export PATH="$HOME/.local/bin:$PATH"
